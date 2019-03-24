@@ -1,9 +1,11 @@
 package com.github.lotusmeanseight.entity;
 
 import javax.persistence.*;
+import javax.persistence.Table;
 import java.util.Set;
 
 @Entity
+@Table(name = "menu")
 public class Menu {
 
     @Id
@@ -13,9 +15,21 @@ public class Menu {
     private String menuTitle;
     private float totalPrice;
     private String shortDesc;
-    @ManyToMany
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinTable(name = "menu_dishes",
+    joinColumns = @JoinColumn(name = "menu_id"),
+    inverseJoinColumns = @JoinColumn(name = "dish_id"))
     private Set<Dish> dishes;
-    @ManyToMany
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinTable(name = "menu_wines",
+    joinColumns = @JoinColumn(name = "menu_id"),
+    inverseJoinColumns = @JoinColumn(name = "wine_id"))
     private Set<Wine> suggestedWines;
 
 

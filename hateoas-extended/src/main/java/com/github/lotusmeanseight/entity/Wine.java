@@ -14,7 +14,7 @@ public class Wine {
     private Integer id;
     private String name;
     private String shortDesc;
-    @ManyToMany
+    @ManyToMany(mappedBy = "suggestedWines")
     private Set<Menu> menus;
 
     public Wine(){

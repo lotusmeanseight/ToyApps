@@ -14,8 +14,8 @@ public class Dish {
     private Integer id;
     private String name;
     private int calories;
-    @ManyToMany
-    private Set<Menu> menuSet;
+    @ManyToMany(mappedBy = "dishes")
+    private Set<Menu> menus;
     private boolean vegetarian;
     private boolean lactose;
     private boolean gluten;
@@ -48,12 +48,12 @@ public class Dish {
         this.calories = calories;
     }
 
-    public Set<Menu> getMenuSet() {
-        return menuSet;
+    public Set<Menu> getMenus() {
+        return menus;
     }
 
-    public void setMenuSet(Set<Menu> menuSet) {
-        this.menuSet = menuSet;
+    public void setMenus(Set<Menu> menuSet) {
+        this.menus = menuSet;
     }
 
     public boolean isVegetarian() {
