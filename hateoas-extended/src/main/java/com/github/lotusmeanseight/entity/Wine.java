@@ -13,6 +13,9 @@ public class Wine {
     @Column(name = "wine_id")
     private Integer id;
     private String name;
+    private String brand;
+    private String type;
+    private int age;
     private String shortDesc;
     @ManyToMany(mappedBy = "suggestedWines")
     private Set<Menu> menus;
@@ -53,18 +56,45 @@ public class Wine {
         this.menus = menus;
     }
 
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Wine wine = (Wine) o;
-        return Objects.equal(id, wine.id) &&
+        return age == wine.age &&
+                Objects.equal(id, wine.id) &&
                 Objects.equal(name, wine.name) &&
+                Objects.equal(brand, wine.brand) &&
+                Objects.equal(type, wine.type) &&
                 Objects.equal(shortDesc, wine.shortDesc);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(id, name, shortDesc);
+        return Objects.hashCode(id, name, brand, type, age, shortDesc);
     }
 }
