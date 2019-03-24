@@ -1,42 +1,31 @@
 package com.github.lotusmeanseight.entity.service.impl;
 
 import com.github.lotusmeanseight.entity.Dish;
+import com.github.lotusmeanseight.entity.service.DefaultService;
 import com.github.lotusmeanseight.entity.service.GenericService;
 
-public class DishService implements GenericService<Dish, Integer> {
+public class DishService extends DefaultService<Dish> {
+
+    public DishService(){
+    }
 
     @Override
     public void save(Dish entity) {
-
+        super.save(entity);
     }
 
     @Override
     public Dish find(Dish entity) {
-        return null;
-    }
-
-    @Override
-    public Dish findById(Integer id) {
-        return null;
+        return super.find(entity);
     }
 
     @Override
     public void update(Dish entity) {
-
-    }
-
-    @Override
-    public void updateById(Integer id) {
-
+        super.update(entity);
     }
 
     @Override
     public void delete(Dish entity) {
-
-    }
-
-    @Override
-    public void deleteById(Integer id) {
-
+        super.delete(entity);
     }
 }

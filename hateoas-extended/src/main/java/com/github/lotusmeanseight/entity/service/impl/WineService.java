@@ -1,42 +1,30 @@
 package com.github.lotusmeanseight.entity.service.impl;
 
 import com.github.lotusmeanseight.entity.Wine;
-import com.github.lotusmeanseight.entity.service.GenericService;
+import com.github.lotusmeanseight.entity.service.DefaultService;
 
-public class WineService implements GenericService<Wine, Integer> {
+public class WineService extends DefaultService<Wine> {
+
+    public WineService(){
+    }
 
     @Override
     public void save(Wine entity) {
-
+        super.save(entity);
     }
 
     @Override
     public Wine find(Wine entity) {
-        return null;
-    }
-
-    @Override
-    public Wine findById(Integer id) {
-        return null;
+        return super.find(entity);
     }
 
     @Override
     public void update(Wine entity) {
-
-    }
-
-    @Override
-    public void updateById(Integer id) {
-
+        super.update(entity);
     }
 
     @Override
     public void delete(Wine entity) {
-
-    }
-
-    @Override
-    public void deleteById(Integer id) {
-
+        super.delete(entity);
     }
 }

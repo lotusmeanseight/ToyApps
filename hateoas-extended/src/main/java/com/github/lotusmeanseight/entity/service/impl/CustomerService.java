@@ -1,42 +1,31 @@
 package com.github.lotusmeanseight.entity.service.impl;
 
 import com.github.lotusmeanseight.entity.Customer;
-import com.github.lotusmeanseight.entity.service.GenericService;
+import com.github.lotusmeanseight.entity.service.DefaultService;
 
-public class CustomerService implements GenericService<Customer, Integer> {
+public class CustomerService extends DefaultService<Customer> {
+
+    public CustomerService(){
+    }
 
     @Override
     public void save(Customer entity) {
-
+        super.save(entity);
     }
 
     @Override
     public Customer find(Customer entity) {
-        return null;
-    }
-
-    @Override
-    public Customer findById(Integer id) {
-        return null;
+        return super.find(entity);
     }
 
     @Override
     public void update(Customer entity) {
-
-    }
-
-    @Override
-    public void updateById(Integer id) {
-
+        super.update(entity);
     }
 
     @Override
     public void delete(Customer entity) {
-
+        super.delete(entity);
     }
 
-    @Override
-    public void deleteById(Integer id) {
-
-    }
 }

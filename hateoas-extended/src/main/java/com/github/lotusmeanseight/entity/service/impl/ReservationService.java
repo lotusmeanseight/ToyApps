@@ -1,42 +1,31 @@
 package com.github.lotusmeanseight.entity.service.impl;
 
 import com.github.lotusmeanseight.entity.Reservation;
+import com.github.lotusmeanseight.entity.service.DefaultService;
 import com.github.lotusmeanseight.entity.service.GenericService;
 
-public class ReservationService implements GenericService<Reservation, Integer> {
+public class ReservationService extends DefaultService<Reservation> {
+
+    public ReservationService(){
+    }
 
     @Override
     public void save(Reservation entity) {
-
+        super.save(entity);
     }
 
     @Override
     public Reservation find(Reservation entity) {
-        return null;
-    }
-
-    @Override
-    public Reservation findById(Integer id) {
-        return null;
+        return super.find(entity);
     }
 
     @Override
     public void update(Reservation entity) {
-
-    }
-
-    @Override
-    public void updateById(Integer id) {
-
+        super.update(entity);
     }
 
     @Override
     public void delete(Reservation entity) {
-
-    }
-
-    @Override
-    public void deleteById(Integer id) {
-
+        super.delete(entity);
     }
 }
