@@ -1,16 +1,17 @@
 package com.github.lotusmeanseight.entity;
 
+import org.springframework.hateoas.RepresentationModel;
+
 import javax.persistence.*;
 import javax.persistence.Table;
 import java.util.Set;
 
 @Entity
 @Table(name = "menu")
-public class Menu {
+public class Menu extends RepresentationModel<Menu> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "menu_id")
     private Integer id;
     private String menuTitle;
     private float totalPrice;

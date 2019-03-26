@@ -1,16 +1,16 @@
 package com.github.lotusmeanseight.entity;
 
 import com.google.common.base.Objects;
+import org.springframework.hateoas.RepresentationModel;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-public class Wine {
+public class Wine extends RepresentationModel<Wine> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "wine_id")
     private Integer id;
     private String name;
     private String brand;
@@ -21,7 +21,14 @@ public class Wine {
     private Set<Menu> menus;
 
     public Wine(){
+    }
 
+    public Wine(String name, String brand, String type, int age, String shortDesc) {
+        this.name = name;
+        this.brand = brand;
+        this.type = type;
+        this.age = age;
+        this.shortDesc = shortDesc;
     }
 
     public Integer getId() {

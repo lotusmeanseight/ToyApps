@@ -1,16 +1,16 @@
 package com.github.lotusmeanseight.entity;
 
 import com.google.common.base.Objects;
+import org.springframework.hateoas.RepresentationModel;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-public class Dish {
+public class Dish extends RepresentationModel<Dish> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "dish_id")
     private Integer id;
     private String name;
     private int calories;

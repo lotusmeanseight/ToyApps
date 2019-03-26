@@ -1,16 +1,16 @@
 package com.github.lotusmeanseight.entity;
 
 import com.google.common.base.Objects;
+import org.springframework.hateoas.RepresentationModel;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class Customer {
+public class Customer extends RepresentationModel<Customer> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "customer_id")
     private Integer id;
     private String firstName;
     private String lastName;

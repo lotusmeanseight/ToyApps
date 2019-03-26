@@ -1,14 +1,15 @@
 package com.github.lotusmeanseight.entity;
 
+import org.springframework.hateoas.RepresentationModel;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class Reservation {
+public class Reservation extends RepresentationModel<Reservation> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "wine_id")
     private Integer id;
     @OneToMany(mappedBy = "reservation")
     private List<Table> tableList;
