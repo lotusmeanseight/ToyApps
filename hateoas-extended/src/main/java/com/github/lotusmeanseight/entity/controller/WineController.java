@@ -2,9 +2,9 @@ package com.github.lotusmeanseight.entity.controller;
 
 import com.github.lotusmeanseight.entity.Wine;
 import com.github.lotusmeanseight.entity.repository.WineRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
-import org.springframework.hateoas.Link;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,6 +30,9 @@ public class WineController {
         return new EntityModel<>(wine, selfLink);
     }
 
-
+    @GetMapping("/wines")
+    public ResponseEntity<CollectionModel<EntityModel<Wine>>> findAll(){
+        return ResponseEntity.ok(CollectionModel.wrap(wineRepository.findAll()));
+    }
 
 }

@@ -12,8 +12,10 @@ public class DataLoader {
     @Bean
     CommandLineRunner init(WineRepository repository){
         return args -> {
-            repository.save(new Wine("Wine", "Spätburgunder","Rotwein", 10,
+            repository.save(new Wine("Baden", "Spätburgunder","Rotwein", 10,
                     "Wine wine wine"));
+            repository.save(new Wine("Bremen","Spätburgunder","Rotwein",10,
+                    "Wine Wine Wine"));
         };
     }
 

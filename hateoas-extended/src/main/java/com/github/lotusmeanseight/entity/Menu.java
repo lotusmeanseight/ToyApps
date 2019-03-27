@@ -2,8 +2,8 @@ package com.github.lotusmeanseight.entity;
 
 import org.springframework.hateoas.RepresentationModel;
 
-import javax.persistence.*;
 import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Set;
 
 @Entity
@@ -13,6 +13,7 @@ public class Menu extends RepresentationModel<Menu> {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+    @Column(unique = true)
     private String menuTitle;
     private float totalPrice;
     private String shortDesc;
@@ -37,6 +38,11 @@ public class Menu extends RepresentationModel<Menu> {
     public Menu() {
     }
 
+    public Menu(String menuTitle, float totalPrice, String shortDesc) {
+        this.menuTitle = menuTitle;
+        this.totalPrice = totalPrice;
+        this.shortDesc = shortDesc;
+    }
 
     public Integer getId() {
         return id;
