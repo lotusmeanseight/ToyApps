@@ -22,7 +22,6 @@ import javax.sql.DataSource;
 @EnableJpaRepositories(transactionManagerRef = "appTransactionManager",
         entityManagerFactoryRef = "appEntityManagerFactory",
         basePackages = "com.github.lotusmeanseight.entity.repository")
-@EnableTransactionManagement
 public class AppSourceConfig {
 
     private static final String APP_JPA_PROP = "app.jpa";
