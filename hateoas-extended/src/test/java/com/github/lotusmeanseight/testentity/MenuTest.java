@@ -9,7 +9,9 @@ import com.github.lotusmeanseight.entity.repository.WineRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
+@DataJpaTest
 public class MenuTest {
 
     @Autowired
@@ -28,8 +30,7 @@ public class MenuTest {
         wineRepository.save(wine);
         menuRepository.save(menu);
         Assertions.assertTrue(menuRepository.findByMenuTitle("simple").getSuggestedWines().contains(wine));
-        wineRepository.delete(wine);
-        menuRepository.delete(menu);
+
     }
 
     @Test
@@ -40,8 +41,7 @@ public class MenuTest {
         dishRepository.save(dish);
         menuRepository.save(menu);
         Assertions.assertTrue(menuRepository.findByMenuTitle("simple").getDishes().contains(dish));
-        dishRepository.delete(dish);
-        menuRepository.delete(menu);
+
     }
 
 }
