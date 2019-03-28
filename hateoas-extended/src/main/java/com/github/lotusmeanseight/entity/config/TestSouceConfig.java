@@ -19,7 +19,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 @Configuration
-@EnableJpaRepositories(entityManagerFactoryRef = "testEntityManagerFactory",
+@EnableJpaRepositories(transactionManagerRef = "testTransactionManager",
+        entityManagerFactoryRef = "testEntityManagerFactory",
         basePackages = "com.github.lotusmeanseight.entity.repository")
 @EnableTransactionManagement
 public class TestSouceConfig {
