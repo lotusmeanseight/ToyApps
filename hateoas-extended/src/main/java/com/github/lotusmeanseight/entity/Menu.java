@@ -4,6 +4,7 @@ import org.springframework.hateoas.RepresentationModel;
 
 import javax.persistence.Table;
 import javax.persistence.*;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Entity
@@ -42,6 +43,8 @@ public class Menu extends RepresentationModel<Menu> {
         this.menuTitle = menuTitle;
         this.totalPrice = totalPrice;
         this.shortDesc = shortDesc;
+        this.suggestedWines = new LinkedHashSet<>();
+        this.dishes = new LinkedHashSet<>();
     }
 
     public Integer getId() {
