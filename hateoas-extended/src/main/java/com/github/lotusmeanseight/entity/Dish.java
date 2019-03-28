@@ -4,6 +4,7 @@ import com.google.common.base.Objects;
 import org.springframework.hateoas.RepresentationModel;
 
 import javax.persistence.*;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Entity
@@ -22,6 +23,15 @@ public class Dish extends RepresentationModel<Dish> {
 
     public Dish(){
 
+    }
+
+    public Dish(String name, int calories, boolean vegetarian, boolean lactose, boolean gluten) {
+        this.name = name;
+        this.calories = calories;
+        this.vegetarian = vegetarian;
+        this.lactose = lactose;
+        this.gluten = gluten;
+        this.menus = new LinkedHashSet<>();
     }
 
     public Integer getId() {

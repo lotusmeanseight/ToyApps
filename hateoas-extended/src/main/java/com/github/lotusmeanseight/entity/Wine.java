@@ -4,6 +4,7 @@ import com.google.common.base.Objects;
 import org.springframework.hateoas.RepresentationModel;
 
 import javax.persistence.*;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Entity
@@ -29,6 +30,7 @@ public class Wine extends RepresentationModel<Wine> {
         this.type = type;
         this.age = age;
         this.shortDesc = shortDesc;
+        this.menus = new LinkedHashSet<>();
     }
 
     public Integer getId() {

@@ -1,0 +1,47 @@
+package com.github.lotusmeanseight.testentity;
+
+import com.github.lotusmeanseight.entity.Dish;
+import com.github.lotusmeanseight.entity.Menu;
+import com.github.lotusmeanseight.entity.Wine;
+import com.github.lotusmeanseight.entity.repository.DishRepository;
+import com.github.lotusmeanseight.entity.repository.MenuRepository;
+import com.github.lotusmeanseight.entity.repository.WineRepository;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class MenuTest {
+
+    @Autowired
+    private WineRepository wineRepository;
+    @Autowired
+    private MenuRepository menuRepository;
+    @Autowired
+    private DishRepository dishRepository;
+
+    @Test
+    public void wineAppearsOnMenu(){
+        Wine wine = new Wine("Baden", "Spätburgunder","Rotwein", 10,
+                "Wine wine wine");
+        Menu menu = new Menu("simple", 100.0f, "Menu menu menu");
+        menu.getSuggestedWines().add(wine);
+        wineRepository.save(wine);
+        menuRepository.save(menu);
+        Assertions.assertTrue(menuRepository.findByMenuTitle("simple").getSuggestedWines().contains(wine));
+        wineRepository.delete(wine);
+        menuRepository.delete(menu);
+    }
+
+    @Test
+    public void dishAppearsOnMenu(){
+        Dish dish = new Dish("Spaghetti", 3000, false, true, true);
+        Menu menu = new Menu("simple", 100.0f, "Menu menu menu");
+        menu.getDishes().add(dish);
+        dishRepository.save(dish);
+        menuRepository.save(menu);
+        Assertions.assertTrue(menuRepository.findByMenuTitle("simple").getDishes().contains(dish));
+        dishRepository.delete(dish);
+        menuRepository.delete(menu);
+    }
+
+}
