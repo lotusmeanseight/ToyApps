@@ -42,14 +42,14 @@ public class TestSouceConfig {
     @Bean
     @Primary
     @ConfigurationProperties(prefix = TEST_DATASOURCE)
-    public DataSourceProperties dataSourceProperties(){
+    public DataSourceProperties testDataSourceProperties(){
         return new DataSourceProperties();
     }
 
     @Bean(name = TEST_DATASOURCE)
     @Primary
     public DataSource dataSource(){
-        return dataSourceProperties().initializeDataSourceBuilder().build();
+        return testDataSourceProperties().initializeDataSourceBuilder().build();
     }
 
     @Bean(name = TEST_EM_FACTORY)
