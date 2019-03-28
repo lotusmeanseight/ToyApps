@@ -13,6 +13,7 @@ public class Dish extends RepresentationModel<Dish> {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+    @Column(unique = true)
     private String name;
     private int calories;
     @ManyToMany(mappedBy = "dishes")

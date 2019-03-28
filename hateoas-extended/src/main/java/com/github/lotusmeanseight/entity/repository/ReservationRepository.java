@@ -7,7 +7,10 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface ReserverationRepository extends CrudRepository<Reservation, Integer> {
+public interface ReservationRepository extends CrudRepository<Reservation, Integer> {
 
     Reservation findByCustomerAndTableList(Customer customer, List<Table> tableList);
+    Reservation findByTitleAndAndCustomer(String title, Customer customer);
+    List<Reservation> findByCustomer(Customer customer);
+
 }

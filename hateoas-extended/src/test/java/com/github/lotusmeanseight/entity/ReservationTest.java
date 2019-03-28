@@ -1,10 +1,7 @@
-package com.github.lotusmeanseight.testentity;
+package com.github.lotusmeanseight.entity;
 
-import com.github.lotusmeanseight.entity.Customer;
-import com.github.lotusmeanseight.entity.Reservation;
-import com.github.lotusmeanseight.entity.Table;
 import com.github.lotusmeanseight.entity.repository.CustomerRepository;
-import com.github.lotusmeanseight.entity.repository.ReserverationRepository;
+import com.github.lotusmeanseight.entity.repository.ReservationRepository;
 import com.github.lotusmeanseight.entity.repository.TableRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -15,7 +12,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 public class ReservationTest {
 
     @Autowired
-    private ReserverationRepository reserverationRepository;
+    private ReservationRepository reservationRepository;
     @Autowired
     private TableRepository tableRepository;
     @Autowired
@@ -30,10 +27,10 @@ public class ReservationTest {
         reservation.getTableList().add(table);
         tableRepository.save(table);
         customerRepository.save(customer);
-        reserverationRepository.save(reservation);
-        Assertions.assertEquals(reserverationRepository.
+        reservationRepository.save(reservation);
+        Assertions.assertEquals(reservationRepository.
                 findByCustomerAndTableList(customer, reservation.getTableList()).getCustomer(), customer);
-        Assertions.assertEquals(reserverationRepository.
+        Assertions.assertEquals(reservationRepository.
                 findByCustomerAndTableList(customer, reservation.getTableList()).getTableList().get(0), table);
     }
 

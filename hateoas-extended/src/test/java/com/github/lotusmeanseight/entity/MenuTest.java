@@ -1,8 +1,5 @@
-package com.github.lotusmeanseight.testentity;
+package com.github.lotusmeanseight.entity;
 
-import com.github.lotusmeanseight.entity.Dish;
-import com.github.lotusmeanseight.entity.Menu;
-import com.github.lotusmeanseight.entity.Wine;
 import com.github.lotusmeanseight.entity.repository.DishRepository;
 import com.github.lotusmeanseight.entity.repository.MenuRepository;
 import com.github.lotusmeanseight.entity.repository.WineRepository;
