@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -44,10 +45,13 @@ public class WineController {
     }
 
     @PostMapping("/wines")
-    public ResponseEntity<Wine> createWine(@RequestBody Wine newWine){
-        //TODO
-        Wine wine = wineRepository.save(newWine);
-        return null;
+    public ResponseEntity<EntityModel<Wine>> createWine(@RequestBody Wine newWine){
+        return Optional.of(wineRepository.save(newWine))
+                .map(wine -> ResponseEntity.ok
+                        (new EntityModel<>(wine, linkTo(methodOn(controllerClass).createWine(wine))
+                                .withSelfRel().andAffordance(afford(linkTo(methodOn(controllerClass)
+                                        .findAll()))).andAffordance(afford(linkTo(methodOn(controllerClass)
+                                        .findOne(wine.getId()))))))).orElse(ResponseEntity.notFound().build());
     }
 
 }
