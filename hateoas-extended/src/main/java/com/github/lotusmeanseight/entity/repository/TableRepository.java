@@ -8,6 +8,5 @@ import java.util.List;
 
 public interface TableRepository extends CrudRepository<Table, Integer> {
     Table findByReservation(Reservation reservation);
-    List<Table> findByDeluxe();
-    List<Table> findByDeluxeNot();
+    List<Table> findByDeluxe(boolean deluxe);
 }

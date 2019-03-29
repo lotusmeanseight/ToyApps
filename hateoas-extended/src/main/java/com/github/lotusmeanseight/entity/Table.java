@@ -15,7 +15,7 @@ public class Table extends RepresentationModel<Table> {
     @ManyToOne
     private Reservation reservation;
     private int numberOfSeats;
-    private boolean isDeluxe;
+    private boolean deluxe;
 
     public Table(){
 
@@ -46,11 +46,11 @@ public class Table extends RepresentationModel<Table> {
     }
 
     public boolean isDeluxe() {
-        return isDeluxe;
+        return deluxe;
     }
 
     public void setDeluxe(boolean deluxe) {
-        isDeluxe = deluxe;
+        this.deluxe = deluxe;
     }
 
     @Override
@@ -60,12 +60,12 @@ public class Table extends RepresentationModel<Table> {
         if (!super.equals(o)) return false;
         Table table = (Table) o;
         return numberOfSeats == table.numberOfSeats &&
-                isDeluxe == table.isDeluxe &&
+                deluxe == table.deluxe &&
                 Objects.equal(id, table.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(super.hashCode(), id, numberOfSeats, isDeluxe);
+        return Objects.hashCode(super.hashCode(), id, numberOfSeats, deluxe);
     }
 }

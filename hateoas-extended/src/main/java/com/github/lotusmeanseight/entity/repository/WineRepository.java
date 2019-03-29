@@ -9,5 +9,4 @@ public interface WineRepository extends CrudRepository<Wine, Integer> {
     List<Wine> findByBrand(String brand);
     List<Wine> findFirstByAgeOrderByAgeAsc(int age);
     Wine findByBrandAndTypeAndName(String brand, String type, String name);
-    List<Wine> findByAgeNear(int age);
 }

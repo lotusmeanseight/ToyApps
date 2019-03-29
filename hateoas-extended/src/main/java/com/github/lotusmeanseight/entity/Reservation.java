@@ -4,7 +4,6 @@ import com.google.common.base.Objects;
 import org.springframework.hateoas.RepresentationModel;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
