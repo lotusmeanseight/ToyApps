@@ -4,8 +4,7 @@ import org.springframework.hateoas.RepresentationModel;
 
 import javax.persistence.Table;
 import javax.persistence.*;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "menu")
@@ -25,7 +24,7 @@ public class Menu extends RepresentationModel<Menu> {
     @JoinTable(name = "menu_dishes",
     joinColumns = @JoinColumn(name = "menu_id"),
     inverseJoinColumns = @JoinColumn(name = "dish_id"))
-    private Set<Dish> dishes;
+    private List<Dish> dishes;
     @ManyToMany(cascade = {
             CascadeType.PERSIST,
             CascadeType.MERGE
@@ -33,7 +32,7 @@ public class Menu extends RepresentationModel<Menu> {
     @JoinTable(name = "menu_wines",
     joinColumns = @JoinColumn(name = "menu_id"),
     inverseJoinColumns = @JoinColumn(name = "wine_id"))
-    private Set<Wine> suggestedWines;
+    private List<Wine> suggestedWines;
 
 
     public Menu() {
@@ -43,8 +42,8 @@ public class Menu extends RepresentationModel<Menu> {
         this.menuTitle = menuTitle;
         this.totalPrice = totalPrice;
         this.shortDesc = shortDesc;
-        this.suggestedWines = new LinkedHashSet<>();
-        this.dishes = new LinkedHashSet<>();
+        this.suggestedWines = new ArrayList<>();
+        this.dishes = new ArrayList<>();
     }
 
     public Integer getId() {
@@ -79,19 +78,19 @@ public class Menu extends RepresentationModel<Menu> {
         this.shortDesc = shortDesc;
     }
 
-    public Set<Dish> getDishes() {
+    public List<Dish> getDishes() {
         return dishes;
     }
 
-    public void setDishes(Set<Dish> dishes) {
+    public void setDishes(List<Dish> dishes) {
         this.dishes = dishes;
     }
 
-    public Set<Wine> getSuggestedWines() {
+    public List<Wine> getSuggestedWines() {
         return suggestedWines;
     }
 
-    public void setSuggestedWines(Set<Wine> suggestedWines) {
+    public void setSuggestedWines(List<Wine> suggestedWines) {
         this.suggestedWines = suggestedWines;
     }
 

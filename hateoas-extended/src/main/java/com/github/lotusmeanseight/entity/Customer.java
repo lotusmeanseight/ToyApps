@@ -4,6 +4,7 @@ import com.google.common.base.Objects;
 import org.springframework.hateoas.RepresentationModel;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -28,6 +29,7 @@ public class Customer extends RepresentationModel<Customer> {
         this.lastName = lastName;
         this.phone = phone;
         this.email = email;
+        reservations = new ArrayList<>();
     }
 
     public Integer getId() {
