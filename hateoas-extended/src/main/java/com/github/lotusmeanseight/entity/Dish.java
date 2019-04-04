@@ -4,7 +4,9 @@ import com.google.common.base.Objects;
 import org.springframework.hateoas.RepresentationModel;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -17,7 +19,7 @@ public class Dish extends RepresentationModel<Dish> {
     private String name;
     private int calories;
     @ManyToMany(mappedBy = "dishes")
-    private Set<Menu> menus;
+    private List<Menu> menus;
     private boolean vegetarian;
     private boolean lactose;
     private boolean gluten;
@@ -32,7 +34,7 @@ public class Dish extends RepresentationModel<Dish> {
         this.vegetarian = vegetarian;
         this.lactose = lactose;
         this.gluten = gluten;
-        this.menus = new LinkedHashSet<>();
+        this.menus = new ArrayList<>();
     }
 
     public Integer getId() {
@@ -59,11 +61,11 @@ public class Dish extends RepresentationModel<Dish> {
         this.calories = calories;
     }
 
-    public Set<Menu> getMenus() {
+    public List<Menu> getMenus() {
         return menus;
     }
 
-    public void setMenus(Set<Menu> menuSet) {
+    public void setMenus(List<Menu> menuSet) {
         this.menus = menuSet;
     }
 

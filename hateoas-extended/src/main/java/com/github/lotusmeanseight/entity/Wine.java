@@ -4,7 +4,9 @@ import com.google.common.base.Objects;
 import org.springframework.hateoas.RepresentationModel;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -19,7 +21,7 @@ public class Wine extends RepresentationModel<Wine> {
     private int age;
     private String shortDesc;
     @ManyToMany(mappedBy = "suggestedWines")
-    private Set<Menu> menus;
+    private List<Menu> menus;
 
     public Wine(){
     }
@@ -30,7 +32,7 @@ public class Wine extends RepresentationModel<Wine> {
         this.type = type;
         this.age = age;
         this.shortDesc = shortDesc;
-        this.menus = new LinkedHashSet<>();
+        this.menus = new ArrayList<>();
     }
 
     public Integer getId() {
@@ -57,11 +59,11 @@ public class Wine extends RepresentationModel<Wine> {
         this.shortDesc = shortDesc;
     }
 
-    public Set<Menu> getMenus() {
+    public List<Menu> getMenus() {
         return menus;
     }
 
-    public void setMenus(Set<Menu> menus) {
+    public void setMenus(List<Menu> menus) {
         this.menus = menus;
     }
 

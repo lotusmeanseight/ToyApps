@@ -27,7 +27,6 @@ public class MenuTest {
         wineRepository.save(wine);
         menuRepository.save(menu);
         Assertions.assertTrue(menuRepository.findByMenuTitle("simple").getSuggestedWines().contains(wine));
-
     }
 
     @Test
