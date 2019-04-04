@@ -1,6 +1,7 @@
 package com.github.lotusmeanseight.entity.config;
 
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.boot.autoconfigure.orm.jpa.JpaProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -21,6 +22,7 @@ import javax.sql.DataSource;
 @EnableJpaRepositories(transactionManagerRef = "appTransactionManager",
         entityManagerFactoryRef = "appEntityManagerFactory",
         basePackages = "com.github.lotusmeanseight.entity.repository")
+@EntityScan(basePackages = {"com.github.lotusmeanseight.entity"})
 public class DatasourceConfig {
 
     private static final String APP_JPA_PROP = "app.jpa";
