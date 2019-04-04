@@ -4,7 +4,8 @@ import org.springframework.hateoas.RepresentationModel;
 
 import javax.persistence.Table;
 import javax.persistence.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "menu")
