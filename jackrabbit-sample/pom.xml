@@ -11,6 +11,7 @@
     <properties>
         <!-- dependency versions -->
         <jackrabbit.version>2.19.1</jackrabbit.version>
+        <guava.version>27.1-jre</guava.version>
         <junit-5.version>5.4.1</junit-5.version>
         <!-- maven stuff -->
         <java.version>11</java.version>
